@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   keywords: ["abogados", "derecho civil", "derecho laboral", "accidentes de transito", "reclamos seguros", "estudio juridico", "buenos aires", "argentina"],
   authors: [{ name: "Cono Sur Abogados" }],
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.png",
   },
 };
 
