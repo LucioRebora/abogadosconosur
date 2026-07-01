@@ -5,6 +5,7 @@ import path from "path";
 
 export class LocalConsultaRepository implements IConsultaRepository {
   private readonly filePath: string;
+  private readonly inMemoryDb: Consulta[] = [];
 
   constructor() {
     // Save to scratch directory in workspace for easy inspection
@@ -27,21 +28,35 @@ export class LocalConsultaRepository implements IConsultaRepository {
    * Saves a new consultation to the JSON store
    */
   public async save(consulta: Consulta): Promise<void> {
-    await this.ensureDirectory();
-    const current = await this.findAll();
-    current.push(consulta);
-    await fs.writeFile(this.filePath, JSON.stringify(current, null, 2), "utf-8");
+    this.inMemoryDb.push(consulta);
+
+    if (process.env.VERCEL) {
+      return;
+    }
+
+    try {
+      await this.ensureDirectory();
+      const current = await this.findAll();
+      current.push(consulta);
+      await fs.writeFile(this.filePath, JSON.stringify(current, null, 2), "utf-8");
+    } catch (err) {
+      console.warn("Could not save to file system (expected in serverless environments):", err);
+    }
   }
 
   /**
    * Fetches all registered consultations from the JSON store
    */
   public async findAll(): Promise<Consulta[]> {
+    if (process.env.VERCEL) {
+      return this.inMemoryDb;
+    }
+
     try {
       const data = await fs.readFile(this.filePath, "utf-8");
       return JSON.parse(data) as Consulta[];
     } catch {
-      return [];
+      return this.inMemoryDb;
     }
   }
 }
