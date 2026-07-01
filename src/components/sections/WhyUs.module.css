@@ -1,0 +1,198 @@
+.section {
+  padding: 6rem 0;
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-white);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background elements for premium aesthetic */
+.section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+/* Left Intro Column */
+.introCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--color-accent-gold);
+  margin-bottom: 0.8rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-white);
+}
+
+.divider {
+  width: 50px;
+  height: 2px;
+  background-color: var(--color-accent-gold);
+  margin-bottom: 2rem;
+}
+
+.paragraph {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.paragraph strong {
+  color: var(--color-accent-gold);
+  font-weight: 500;
+}
+
+.emphasis {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-accent-gold);
+  margin-top: 0.5rem;
+  margin-bottom: 2.5rem;
+  border-left: 2px solid var(--color-accent-gold);
+  padding-left: 1.25rem;
+}
+
+.brandSign {
+  display: flex;
+  flex-direction: column;
+}
+
+.firmName {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-text-white);
+  letter-spacing: 0.1em;
+}
+
+.firmTag {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-accent-gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Right Pillars Column */
+.pillarsCol {
+  width: 100%;
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.pillarCard {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(197, 160, 89, 0.15);
+  border-radius: var(--border-radius-md);
+  padding: 2rem;
+  transition: var(--transition-smooth);
+}
+
+.pillarCard:hover {
+  background-color: rgba(197, 160, 89, 0.04);
+  border-color: var(--color-accent-gold);
+  transform: translateY(-3px);
+}
+
+.iconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent-gold);
+  color: var(--color-accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: var(--transition-smooth);
+}
+
+.pillarCard:hover .iconBox {
+  background-color: var(--color-accent-gold);
+  color: var(--color-primary-dark);
+}
+
+.iconBox svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pillarTitle {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-text-white);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.pillarDesc {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 300;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 4rem 0;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .pillarCard {
+    padding: 1.5rem;
+  }
+}

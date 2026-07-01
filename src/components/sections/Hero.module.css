@@ -1,0 +1,479 @@
+.hero {
+  min-height: calc(100vh - 85px);
+  margin-top: 85px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.splitWrapper {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========================================================
+   LEFT COLUMN - FOREST GREEN
+   ======================================================== */
+.leftCol {
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-white);
+  padding: 5rem 3rem 5rem 6rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* Convex Curve separator */
+}
+
+.leftCol::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -60px;
+  width: 120px;
+  height: 100%;
+  background-color: var(--color-primary-dark);
+  border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+  border-right: 2px solid var(--color-accent-gold);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.leftContent {
+  position: relative;
+  z-index: 5; /* Sit above the curve */
+  width: 100%;
+  max-width: 600px;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.statementBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.badgeDiamond {
+  color: var(--color-accent-gold);
+  font-size: 0.75rem;
+}
+
+.badgeText {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-accent-gold);
+}
+
+.headline {
+  font-family: var(--font-serif);
+  font-size: 3.2rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  margin-bottom: 2rem;
+}
+
+.goldText {
+  color: var(--color-accent-gold);
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2rem;
+}
+
+.strongGold {
+  color: var(--color-accent-gold);
+  font-weight: 600;
+}
+
+.dividerLines {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+.lineGold {
+  height: 1px;
+  background-color: var(--color-accent-gold);
+  opacity: 0.3;
+  width: 80px;
+}
+
+.diamondGold {
+  color: var(--color-accent-gold);
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* Specialties Grid */
+.specialtiesWrapper {
+  margin-bottom: 3rem;
+}
+
+.specialtiesTitle {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-gold);
+  margin-bottom: 1.5rem;
+}
+
+.specialtiesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.specCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.02);
+  transition: var(--transition-smooth);
+}
+
+.specCard:hover {
+  background-color: rgba(197, 160, 89, 0.06);
+  border-color: rgba(197, 160, 89, 0.4);
+  transform: translateY(-2px);
+}
+
+.specIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-gold);
+  flex-shrink: 0;
+}
+
+.specIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.specLabel {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Defense and DM Banners */
+.defenseBanner {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.2rem;
+  border: 1px solid var(--color-accent-gold);
+  border-radius: var(--border-radius-sm);
+  background-color: rgba(197, 160, 89, 0.03);
+  margin-bottom: 2rem;
+}
+
+.shieldCheckIcon {
+  color: var(--color-accent-gold);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.defenseText {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.dmCTA {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.chatBubbleIcon {
+  color: var(--color-accent-gold);
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.dmText {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+}
+
+/* ========================================================
+   RIGHT COLUMN - BEIGE / CREAM
+   ======================================================== */
+.rightCol {
+  background-color: var(--color-background-cream);
+  padding: 5rem 6rem 5rem 5rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2; /* below leftCol curve overlay */
+}
+
+.rightContent {
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  animation: slideUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* Elegant Right Logo */
+.brandContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.brandTitle {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  letter-spacing: 0.18em;
+  color: var(--color-primary-dark);
+  line-height: 1;
+  font-weight: 500;
+}
+
+.brandSubtitle {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin-top: 8px;
+}
+
+.subtitleTextRight {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  letter-spacing: 0.35em;
+  color: var(--color-accent-gold);
+  font-weight: 700;
+  padding: 0 10px;
+}
+
+.lineGoldRight {
+  flex-grow: 1;
+  height: 1px;
+  background-color: var(--color-accent-gold);
+}
+
+.brandLogoDiamond {
+  color: var(--color-accent-gold);
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+.taglineRight {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--color-text-dark);
+  margin-bottom: 2rem;
+}
+
+.dividerLinesRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 2.5rem;
+}
+
+.lineRight {
+  height: 1px;
+  background-color: var(--color-accent-gold);
+  opacity: 0.4;
+  width: 60px;
+}
+
+.diamondRight {
+  color: var(--color-accent-gold);
+  font-size: 0.65rem;
+}
+
+/* Pillars List */
+.pillarsList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+.pillarItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.pillarIcon {
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-primary-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-gold);
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(9, 26, 22, 0.1);
+}
+
+.pillarIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pillarText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pillarTitleText {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-primary-dark);
+}
+
+.pillarDescText {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Email Banner button */
+.emailBannerContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.emailBanner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.2rem 2.2rem;
+  border-radius: 40px;
+  border: 1.5px solid var(--color-accent-gold);
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-white);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 8px 25px rgba(9, 26, 22, 0.15);
+}
+
+.emailBanner:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent-gold-light);
+  box-shadow: 0 12px 30px rgba(9, 26, 22, 0.25);
+  background-color: var(--color-secondary-dark);
+}
+
+.envelopeCircle {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-gold);
+}
+
+.envelopeCircle svg {
+  width: 24px;
+  height: 24px;
+}
+
+.emailAddress {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+/* ========================================================
+   RESPONSIVE LAYOUT
+   ======================================================== */
+@media (max-width: 1024px) {
+  .splitWrapper {
+    grid-template-columns: 1fr;
+  }
+  
+  .leftCol {
+    padding: 4rem 3rem;
+  }
+  
+  .leftCol::after {
+    display: none; /* remove separating convex curve on mobile/tablet */
+  }
+  
+  .rightCol {
+    padding: 4rem 3rem;
+    background-color: #ede9df; /* slightly deeper cream for visual split when stacked */
+  }
+  
+  .rightContent {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .headline {
+    font-size: 2.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .leftCol, .rightCol {
+    padding: 3rem 1.25rem;
+  }
+  
+  .headline {
+    font-size: 2rem;
+  }
+  
+  .specialtiesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .brandTitle {
+    font-size: 2.2rem;
+  }
+
+  .emailBanner {
+    padding: 1rem 1.25rem;
+    gap: 0.8rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .emailAddress {
+    font-size: 0.85rem;
+  }
+}
