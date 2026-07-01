@@ -1,10 +1,10 @@
 import { LocalConsultaRepository } from "../repositories/LocalConsultaRepository";
-import { MockEmailService } from "../services/MockEmailService";
+import { HttpEmailService } from "../services/HttpEmailService";
 import { CrearConsultaUseCase } from "@/application/use-cases/CrearConsultaUseCase";
 
 class Container {
   private readonly _consultaRepository = new LocalConsultaRepository();
-  private readonly _emailService = new MockEmailService();
+  private readonly _emailService = new HttpEmailService();
 
   /**
    * Resolves the CrearConsultaUseCase with its required dependencies injected
