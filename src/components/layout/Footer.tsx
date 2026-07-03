@@ -122,9 +122,17 @@ export const Footer: React.FC = () => {
       <div className={styles.copyrightBar}>
         <div className={`${styles.copyrightContainer} container`}>
           <p>© {currentYear} Cono Sur Abogados. Todos los derechos reservados.</p>
-          <p className={styles.legalDisclaimer}>
-            La información brindada en esta web es de carácter orientativo y no constituye asesoramiento legal formal.
-          </p>
+          <div className={styles.disclaimerRow}>
+            <p className={styles.legalDisclaimer}>
+              La información brindada en esta web es de carácter orientativo y no constituye asesoramiento legal formal.
+            </p>
+            <p className={styles.developerCredit}>
+              Desarrollado con <span className={styles.heart}>♥</span> por{" "}
+              <a href="https://itia.ar" target="_blank" rel="noopener noreferrer" className={styles.developerLink}>
+                itia.ar
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
